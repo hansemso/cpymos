@@ -17,6 +17,7 @@ git clone https://github.com/hansemso/cpymos
 cd cpymos
 pip install -r requirements.txt
 
+```
 cpymos/
 ├─ cli/
 │  ├─ __init__.py
@@ -28,3 +29,4 @@ cpymos/
 │  ├─ fastmath.dll
 │  └─ math_engine.py
 ├─ README.md
+```
