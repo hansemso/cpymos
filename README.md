@@ -1,21 +1,39 @@
 # CPyMOS
 
-A fast, interactive command‑line math tool that combines a custom C math engine with Python and NumPy.
+[GitHub Repository](https://github.com/hansemso/cpymos)
 
-Repo: https://github.com/hansemso/cpymos
+## Description
+
+CPyMOS is a fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
 
 ---
 
-## **🔧 Installation**
+## Features
 
-Clone the repository and install dependencies:
+- Fast C engine (`fastmath.dll`) for numeric evaluation
+- Exponentiation with `^`
+- Parentheses `()` supported for grouping
+- NumPy array operations (e.g., `np.array([1,2,3]) + np.array([4,5,6])`)
+- Interactive row-based CLI with:
+  - Enter to evaluate
+  - Up/Down arrows to navigate
+  - Escape to refresh inputs
+  - F12 to compute total sum
 
-```bash
-git clone https://github.com/hansemso/cpymos
+---
+
+## Installation
+
+1. Clone the repository:
+
+```powershell
+git clone https://github.com/hansemso/cpymos.git
 ```
 
-cd cpymos
-pip install -r requirements.txt
+---
+To Run: 
+
+py -m cli.main
 
 ```
 cpymos/
