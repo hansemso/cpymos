@@ -17,7 +17,7 @@ CPyMOS is a lean fully customizable(no annoying features) fast and interactive c
 - F12 returns at top total for results in left column from expressions in right column 
 - esc key to refresh inputs
 - ans to insert result into new expression
-🧑‍💻 More features on the way
+-🧑‍💻 More features on the way
 
 ---
 
