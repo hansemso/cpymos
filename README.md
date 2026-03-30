@@ -4,23 +4,20 @@
 
 ## Description
 
-CPyMOS is a fully customizable(no annoying features) fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
+CPyMOS is a lean fully customizable(no annoying features) fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
 
 ---
 
 ## Features
 
-- Fully modularized customizable structure...you decide. Simple, reliable, versatile, and very fast.
+- Fully modularized customizable structure. 
 - Fast C engine (`fastmath.dll`) for numeric evaluation
-- Exponentiation with `^`
-- Parentheses `()` supported for grouping
-- NumPy array operations (e.g., `np.array([1,2,3]) + np.array([4,5,6])`)
-- Interactive row-based CLI with:
-  - Enter to evaluate
-  - Up/Down arrows to navigate
-  - esc key to refresh inputs
-  - F12 to sum answer column
-  - ans to insert answer in new expression
+- ^ and () supported. Ex: (2^(2+3))/3^3+4)^1/2  ⏎  1.749064371
+- NumPy supported.  
+- F12 returns at top total for results in left column from expressions in right column 
+- esc key to refresh inputs
+- ans to insert result into new expression
+
 
 ---
 
