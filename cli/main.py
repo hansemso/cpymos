@@ -13,6 +13,7 @@ rows = []
 cursor_row = 0
 result_row = TextArea(height=1, focusable=False, style="class:result")
 container = HSplit([result_row])  # result at top
+last_result = 0  # for adding ans feature
 
 # -------------------- Row Management --------------------
 def add_row():
@@ -32,14 +33,21 @@ def format_result(val):
         return str(val)
 
 def commit_row(event):
-    global cursor_row
+    """Commit the current row: evaluate expression, store result, and move cursor."""
+    global cursor_row, last_result
     left, right = rows[cursor_row]
     expr = right.text.strip()
+    
     if expr:
         val = evaluate(expr)
         left.text = format_result(val)
+    
+        #Only update last_result if numeric
+        if isinstance(val, (int, float)):
+            last_result = val
     else:
         left.text = ""
+        
     # Move cursor down
     if cursor_row < len(rows) - 1:
         cursor_row += 1
@@ -52,7 +60,12 @@ def commit_row(event):
 def evaluate(expr):
     """Evaluate expression: use C engine for math, Python/NumPy for np.array etc."""
     expr = expr.strip()
-    if "np." in expr:   # detect numpy anywhere in the expression
+    
+    # Replace 'ans' with last numeric result
+    expr = expr.replace("ans", str(last_result))
+    
+    # np calls NumPy
+    if "np." in expr:   
         try:
             return eval(expr, {"np": np, "__builtins__": __builtins__})
         except Exception:
