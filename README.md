@@ -17,8 +17,9 @@ CPyMOS is a fast and interactive command-line calculator built with Python, a C 
 - Interactive row-based CLI with:
   - Enter to evaluate
   - Up/Down arrows to navigate
-  - Escape to refresh inputs
-  - F12 to compute total sum
+  - esc key to refresh inputs
+  - F12 to sum answer column
+  - ans to insert answer in new expression
 
 ---
 
