@@ -4,12 +4,13 @@
 
 ## Description
 
-CPyMOS is a fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
+CPyMOS is a fully customizable(no annoying features) fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
 
 ---
 
 ## Features
 
+- Fully modularized customizable structure...you decide. Simple, reliable, versatile, and very fast.
 - Fast C engine (`fastmath.dll`) for numeric evaluation
 - Exponentiation with `^`
 - Parentheses `()` supported for grouping
