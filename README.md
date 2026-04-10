@@ -15,7 +15,7 @@ cpymos is a lean fully customizable(no annoying features) fast and interactive c
 - ^ and () supported. Ex: (2^(2+3))/3^3+4)^1/2  ⏎  1.749064371
 - NumPy supported.  
 - F12 returns at top total for results in left column from expressions in right column 
-- esc key to refresh inputs
+- esc key to refresh inputs, ctrl q to exit app.
 - ans to insert result into new expression
 - More features on the way 🧑‍💻 
 
