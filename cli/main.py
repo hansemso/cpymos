@@ -18,13 +18,13 @@ last_result = 0  # for adding ans feature
 # -------------------- Row Management --------------------
 def add_row():
     left = TextArea(height=1, focusable=False, style="class:left")
-    right = TextArea(height=1, style="class:right")
+    right = TextArea(multiline=True,wrap_lines=True)
     rows.append((left, right))
     container.children.append(VSplit([left, right], padding=3))
     return left, right
 
 def format_result(val):
-    if isinstance(val, np.ndarray):
+    if isinstance(val, np.ndarray):   
         # Convert to list and format each element
         return "[" + " ".join(str(x) for x in val.tolist()) + "]"
     elif isinstance(val, (int, float)):
@@ -43,8 +43,7 @@ def commit_row(event):
         left.text = format_result(val)
     
         #Only update last_result if numeric
-        if isinstance(val, (int, float)):
-            last_result = val
+        last_result = val
     else:
         left.text = ""
         
@@ -58,21 +57,28 @@ def commit_row(event):
         event.app.layout.focus(rows[cursor_row][1])
 
 def evaluate(expr):
-    """Evaluate expression: use C engine for math, Python/NumPy for np.array etc."""
+    global last_result
     expr = expr.strip()
-    
-    # Replace 'ans' with last numeric result
-    expr = expr.replace("ans", str(last_result))
-    
-    # np calls NumPy
-    if "np." in expr:   
+
+    # Shared environment (THIS is the key fix)
+    env = {
+        "np": np,
+        "ans": last_result,
+        "__builtins__": __builtins__,
+    }
+
+    try:
+        # Try Python/NumPy first
+        val = eval(expr, env)
+        last_result = val
+        return val
+
+    except Exception:
         try:
-            return eval(expr, {"np": np, "__builtins__": __builtins__})
-        except Exception:
-            return "Error"
-    else:
-        try:
-            return c_engine.eval_numeric(expr)
+            # Fallback to your C engine
+            val = c_engine.eval_numeric(expr)
+            last_result = val
+            return val
         except Exception:
             return "Error"
 
@@ -140,7 +146,9 @@ def refresh(event):
     cursor_row = 0
     event.app.layout.focus(rows[0][1])
 
-    
+@kb.add("c-q")
+def exit_app(event):
+    event.app.exit()
     
 # -------------------- Styles --------------------
 style = Style.from_dict({
