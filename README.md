@@ -51,9 +51,9 @@ pymos/
 
 
 ===========
-[PyMOS CLI] --> (writes JSON) --> [Monitor Server] --> (feeds) --> [Browser Graph]
+[pymos CLI] --> (writes JSON) --> [Monitor Server] --> (feeds) --> [Browser Graph]
 
-[PyMOS CLI] --writes--> pymos_monitor.json
+[pymos CLI] --writes--> pymos_monitor.json
         |
         v
 [Flask server reads JSON] --serves--> Browser (JS fetch)
