@@ -1,10 +1,10 @@
-# CPyMOS
+# cpymos
 
 [GitHub Repository](https://github.com/hansemso/cpymos)
 
 ## Description
 
-CPyMOS is a lean fully customizable(no annoying features) fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
+cpymos is a lean fully customizable(no annoying features) fast and interactive command-line calculator built with Python, a C engine, and NumPy support. It supports standard math operations, exponentiation, parentheses, and advanced NumPy array operations. The interface is powered by `prompt_toolkit` for a smooth CLI experience with row-based input and real-time results.
 
 ---
 
@@ -50,9 +50,9 @@ cpymos/
 
 
 ===========
-[CPyMOS CLI] --> (writes JSON) --> [Monitor Server] --> (feeds) --> [Browser Graph]
+[cpymos CLI] --> (writes JSON) --> [Monitor Server] --> (feeds) --> [Browser Graph]
 
-[CPyMOS CLI] --writes--> cpymos_monitor.json
+[cpymos CLI] --writes--> cpymos_monitor.json
         |
         v
 [Flask server reads JSON] --serves--> Browser (JS fetch)
